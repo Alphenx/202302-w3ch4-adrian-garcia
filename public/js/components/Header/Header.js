@@ -9,20 +9,17 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
-var _Header_title, _Header_subtitle;
+var _Header_title;
 import Component from '../Component.js';
 export default class Header extends Component {
-    constructor(title, subtitle, parentElement, cssClasses = '') {
+    constructor(title, parentElement, cssClasses = '') {
         super(parentElement, 'header', cssClasses);
         _Header_title.set(this, void 0);
-        _Header_subtitle.set(this, void 0);
         __classPrivateFieldSet(this, _Header_title, title, "f");
-        __classPrivateFieldSet(this, _Header_subtitle, subtitle, "f");
     }
     render() {
         super.render();
-        this.element.textContent = __classPrivateFieldGet(this, _Header_title, "f");
-        this.element.textContent = __classPrivateFieldGet(this, _Header_subtitle, "f");
+        this.element.innerHTML = `<h1 class="main-title">${__classPrivateFieldGet(this, _Header_title, "f")}</h1>`;
     }
 }
-_Header_title = new WeakMap(), _Header_subtitle = new WeakMap();
+_Header_title = new WeakMap();
