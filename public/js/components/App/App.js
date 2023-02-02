@@ -10,16 +10,19 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _App_children;
+// Import Card from '../Card/Card.js';
 import Component from '../Component.js';
+import Header from '../Header/Header.js';
 export default class App extends Component {
     constructor(parentElement) {
         super(parentElement, 'div');
         _App_children.set(this, void 0);
-        __classPrivateFieldSet(this, _App_children, [], "f");
+        __classPrivateFieldSet(this, _App_children, [new Header('Mi título', this.element, 'main-header')], "f");
     }
     render() {
         super.render();
         __classPrivateFieldGet(this, _App_children, "f").forEach(component => component.render());
+        this.element.className = 'container';
     }
 }
 _App_children = new WeakMap();
